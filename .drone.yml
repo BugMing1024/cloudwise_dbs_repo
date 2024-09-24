@@ -10,7 +10,7 @@ server:
     from_secret: ssh-password
   port:
     from_secret: ssh-port
-  
+
 steps:
   - name: deploy-nginx
     image: alpine
