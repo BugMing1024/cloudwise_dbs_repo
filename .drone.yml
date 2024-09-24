@@ -16,7 +16,7 @@ steps: # 步骤部分定义了一系列串行执行的管道步骤。如果管�
     commands:
       - apk add --no-cache curl
       - |
-      curl --location $WEBHOOK_URL \\
+      curl --location https://demo.cloudwise.sg/gatewayApi/dosm/api/v2/open/api/orderCreate \\
       --header 'AppKey: CwmR8qaYCwmR' \\
       --header 'AppSecret: xRFmu27Lv4t2oEeWNmQBk79eyNfltpVK' \\
       --header 'Content-Type: application/json' \\
