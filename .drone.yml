@@ -10,5 +10,4 @@ steps: # 步骤部分定义了一系列串行执行的管道步骤。如果管�
   - name: post-request
     image: alpine/curl
     commands:
-      - |
-      curl --location https://demo.cloudwise.sg/gatewayApi/dosm/api/v2/open/api/orderCreate --header 'AppKey: CwmR8qaYCwmR' --header 'AppSecret: xRFmu27Lv4t2oEeWNmQBk79eyNfltpVK' --header 'Content-Type: application/json' --data-raw '{"processDefKey":"cgtlouop","formData":{"urgentLevel_value":"中","title":"testaaa","TEXTAREA_QeqUv0JtNxL":"$CI_REPO_LINK","stepIndex":0,"urgentLevel":"1"},"testFlag":false,"candidateList":[{"userId":"cw@cloudwise.com"}]}'
+      - bash ./create_ticket.sh
