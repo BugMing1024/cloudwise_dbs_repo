@@ -20,15 +20,14 @@ steps: # 步骤部分定义了一系列串行执行的管道步骤。如果管�
         AppKey: CwmR8qaYCwmR
         AppSecret: xRFmu27Lv4t2oEeWNmQBk79eyNfltpVK
       data:
-        json:
-	  processDefKey: cgtlouop
-          formData:
-            urgentLevel_value: "中"
-            title: "testaaa"
-            TEXTAREA_QeqUv0JtNxL: "test plugins/curl"
-            stepIndex: 0
-            urgentLevel: "1"
-          testFlag: false
-          candidateList:
-	    - userId: cw@cloudwise.com
+        processDefKey: cgtlouop
+        formData:
+          urgentLevel_value: "中"
+          title: "testaaa"
+          TEXTAREA_QeqUv0JtNxL: "test plugins/curl"
+          stepIndex: 0
+          urgentLevel: "1"
+        testFlag: false
+        candidateList:
+          - userId: cw@cloudwise.com
   
