@@ -7,8 +7,8 @@ curl --location 'https://demo.cloudwise.sg/gatewayApi/dosm/api/v2/open/api/order
     "processDefKey": "cgtlouop",
     "formData": {
         "urgentLevel_value": "中",
-        "title": "testaaa",
-        "TEXTAREA_QeqUv0JtNxL": "DATE: $DATE\nDRONE_BRANCH: $DRONE_BRANCH\nGIT_COMMITTER_NAME: $GIT_COMMITTER_NAME\nDRONE_GIT_SSH_URL: $DRONE_GIT_SSH_URL",
+        "title": "'$CI_COMMIT_MESSAGE'",
+        "TEXTAREA_QeqUv0JtNxL": "DATE: '$DATE'\nDRONE_BRANCH: '$DRONE_BRANCH'\nGIT_COMMITTER_NAME: '$GIT_COMMITTER_NAME'\nDRONE_GIT_SSH_URL: '$DRONE_GIT_SSH_URL'",
         "stepIndex": 0,
         "urgentLevel": "1"
     },
