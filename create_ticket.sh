@@ -9,8 +9,8 @@ curl --location 'https://demo.cloudwise.sg/gatewayApi/dosm/api/v2/open/api/order
     "processDefKey": "cgtlouop",
     "formData": {
         "urgentLevel_value": "中",
-        "title": "\$CI_COMMIT_MESSAGE",
-        "TEXTAREA_QeqUv0JtNxL": "\$content",
+        "title": "'"$CI_COMMIT_MESSAGE"'",
+        "TEXTAREA_QeqUv0JtNxL": "'"$content"'",
         "stepIndex": 0,
         "urgentLevel": "1"
     },
