@@ -1,3 +1,4 @@
+DATE=`date`
 curl --location 'https://demo.cloudwise.sg/gatewayApi/dosm/api/v2/open/api/orderCreate' \
 --header 'AppKey: CwmR8qaYCwmR' \
 --header 'AppSecret: xRFmu27Lv4t2oEeWNmQBk79eyNfltpVK' \
@@ -7,7 +8,7 @@ curl --location 'https://demo.cloudwise.sg/gatewayApi/dosm/api/v2/open/api/order
     "formData": {
         "urgentLevel_value": "中",
         "title": "testaaa",
-        "TEXTAREA_QeqUv0JtNxL": "测试一下1321",
+        "TEXTAREA_QeqUv0JtNxL": "DATE: $DATE\nDRONE_BRANCH: $DRONE_BRANCH\nGIT_COMMITTER_NAME: $GIT_COMMITTER_NAME\nDRONE_GIT_SSH_URL: $DRONE_GIT_SSH_URL",
         "stepIndex": 0,
         "urgentLevel": "1"
     },
