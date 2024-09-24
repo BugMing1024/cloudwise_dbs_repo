@@ -8,27 +8,27 @@ steps: # 步骤部分定义了一系列串行执行的管道步骤。如果管�
     commands: # commands 属性将在 Docker 容器内执行的 shell 命令列表定义为容器入口点。如果任何命令返回非零退出代码，则管道步骤将失败。
       - echo hello
       - echo world
-	- name: post-request
-	  image: plugins/curl
-	  settings:
-		retry: 3
-		retry_delay: 5s
-		url: https://demo.cloudwise.sg/gatewayApi/dosm/api/v2/open/api/orderCreate
-		method: POST
-		headers:
-		  Content-Type: application/json
-		  AppKey: CwmR8qaYCwmR
-		  AppSecret: xRFmu27Lv4t2oEeWNmQBk79eyNfltpVK
-		data:
-		  json:
-			processDefKey: cgtlouop
-			formData:
-			  urgentLevel_value: "中"
-			  title: "testaaa"
-			  TEXTAREA_QeqUv0JtNxL: "test plugins/curl"
-			  stepIndex: 0
-			  urgentLevel: "1"
-			testFlag: false
-		    candidateList:
-			    - userId: cw@cloudwise.com
+  - name: post-request
+    image: plugins/curl
+    settings:
+      retry: 3
+      retry_delay: 5s
+      url: https://demo.cloudwise.sg/gatewayApi/dosm/api/v2/open/api/orderCreate
+      method: POST
+      headers:
+        Content-Type: application/json
+        AppKey: CwmR8qaYCwmR
+        AppSecret: xRFmu27Lv4t2oEeWNmQBk79eyNfltpVK
+      data:
+        json:
+	  processDefKey: cgtlouop
+          formData:
+            urgentLevel_value: "中"
+            title: "testaaa"
+            TEXTAREA_QeqUv0JtNxL: "test plugins/curl"
+            stepIndex: 0
+            urgentLevel: "1"
+          testFlag: false
+          candidateList:
+	    - userId: cw@cloudwise.com
   
