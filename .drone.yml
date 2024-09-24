@@ -8,7 +8,7 @@ server:
     from_secret: ssh-username
   password:
     from_secret: ssh-password
-  port: 36000
+  port: "36000"
 
 steps:
   - name: deploy-nginx
