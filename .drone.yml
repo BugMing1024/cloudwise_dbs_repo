@@ -1,20 +1,19 @@
 kind: pipeline
 type: ssh
 name: deploy-nginx
+server:
+  host:
+    from_secret: ssh-hostname
+  user:
+    from_secret: ssh-username
+  password:
+    from_secret: ssh-password
+  port:
+    from_secret: ssh-port
+  
 steps:
   - name: deploy-nginx
     image: alpine
     commands:
       - echo "Deploying nginx in Docker container"
-      - apk add openssh-client
-      - sshpass -p ${SSH_PASSWORD} ssh -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "sudo docker run -d -p 18888:18888 --name nginx-container nginx"
-  
-secrets:
-  - name: SSH_USER
-    source: ssh-username
-  - name: SSH_HOST
-    source: ssh-hostname
-  - name: SSH_PASSWORD
-    source: ssh-password
-  - name: SSH_PORT
-    source: ssh-port
+      - echo "This is test from Jon"
