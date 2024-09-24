@@ -5,20 +5,30 @@ name: default   # name 属性定义了管道的名称。您可以为您的项目
 steps: # 步骤部分定义了一系列串行执行的管道步骤。如果管道中的任何步骤失败，管道将立即退出
   - name: greeting # name 属性定义管道步骤的名称
     image: alpine # image 属性定义了一个执行 shell 命令的 Docker 镜像。可以使用来自任何 DockerHub 中的任何 Docker镜像。
-    commands: # commands 属性将在 Docker 容器内执行的 shell 命令列表定义为容器入口点。如果任何命令返回非零退出代码，则管道步骤将失败
+    commands: # commands 属性将在 Docker 容器内执行的 shell 命令列表定义为容器入口点。如果任何命令返回非零退出代码，则管道步骤将失败。
       - echo hello
       - echo world
-      - env
-  - name: notify
-    image: alpine
-    environment:
-      WEBHOOK_URL: https://demo.cloudwise.sg/gatewayApi/dosm/api/v2/open/api/orderCreate
-    commands:
-      - apk add --no-cache curl
-      - |
-      curl --location https://demo.cloudwise.sg/gatewayApi/dosm/api/v2/open/api/orderCreate \\
-      --header 'AppKey: CwmR8qaYCwmR' \\
-      --header 'AppSecret: xRFmu27Lv4t2oEeWNmQBk79eyNfltpVK' \\
-      --header 'Content-Type: application/json' \\
-      --data-raw '{"processDefKey":"cgtlouop","formData":{"urgentLevel_value":"中","title":"testaaa","TEXTAREA_QeqUv0JtNxL":"test1111","stepIndex":0,"urgentLevel":"1"},"testFlag":false,"candidateList":[{"userId":"cw@cloudwise.com"}]}'
-
+	- name: post-request
+	  image: plugins/curl
+	  settings:
+		retry: 3
+		retry_delay: 5s
+		url: https://demo.cloudwise.sg/gatewayApi/dosm/api/v2/open/api/orderCreate
+		method: POST
+		headers:
+		  Content-Type: application/json
+		  AppKey: CwmR8qaYCwmR
+		  AppSecret: xRFmu27Lv4t2oEeWNmQBk79eyNfltpVK
+		data:
+		  json:
+			processDefKey: cgtlouop
+			formData:
+			  urgentLevel_value: "中"
+			  title: "testaaa"
+			  TEXTAREA_QeqUv0JtNxL: "test plugins/curl"
+			  stepIndex: 0
+			  urgentLevel: "1"
+			testFlag: false
+		    candidateList:
+			    - userId: cw@cloudwise.com
+  
