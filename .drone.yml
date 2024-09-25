@@ -32,7 +32,7 @@ trigger:
     - push
     - pull_request
   branch:
-    - main
+    - master
 approve:
   build:
     status: [success, failure]
