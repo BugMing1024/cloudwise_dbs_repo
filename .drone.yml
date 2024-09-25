@@ -9,10 +9,11 @@ steps: # 步骤部分定义了一系列串行执行的管道步骤。如果管�
       - echo world
   - name: wait-for-approval
     image: plugins/wait
-    settings:
-      conditions:
-        - type: label
-          name: approve
+    when:
+      event:
+      - promote
+      target:
+      - production
   - name: post-request
     image: alpine/curl
     commands:
