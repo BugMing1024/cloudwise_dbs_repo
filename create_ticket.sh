@@ -10,6 +10,12 @@ curl --location 'https://demo.cloudwise.sg/gatewayApi/dosm/api/v2/open/api/order
     "formData": {
         "urgentLevel_value": "中",
         "title": "'"$CI_COMMIT_MESSAGE"'",
+        "build_branch": "'"$DRONE_BRANCH"'",
+        "build_committer_name": "'"$GIT_COMMITTER_NAME"'",
+        "build_ssh_url": "'"$DRONE_GIT_SSH_URL"'",
+        "build_ssh_url": "'"$DRONE_BUILD_NUMBER"'",
+        "DRONE_REPO_NAMESPACE": "'"$DRONE_REPO_NAMESPACE"'",
+        "DRONE_REPO_NAME": "'"$DRONE_REPO_NAME"'",
         "TEXTAREA_QeqUv0JtNxL": "'"$content"'",
         "stepIndex": 0,
         "urgentLevel": "1"
