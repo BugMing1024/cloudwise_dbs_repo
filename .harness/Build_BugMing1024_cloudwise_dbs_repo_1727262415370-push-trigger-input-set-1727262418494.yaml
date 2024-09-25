@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_BugMing1024_cloudwise_dbs_repo_1727262415370-push-trigger-input-set
+  identifier: Build_BugMing1024_cloudwise_dbs_repo_1727262415370pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_BugMing1024_cloudwise_dbs_repo_1727262415370
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
