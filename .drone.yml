@@ -11,7 +11,6 @@ steps: # 步骤部分定义了一系列串行执行的管道步骤。如果管�
     image: alpine # image 属性定义了一个执行 shell 命令的 Docker 镜像。可以使用来自任何 DockerHub 中的任何 Docker镜像。
     commands: # commands 属性将在 Docker 容器内执行的 shell 命令列表定义为容器入口点。如果任何命令返回非零退出代码，则管道步骤将失败。
       - echo prepare
-    
   - name: create ticket
     image: alpine/curl
     commands:
@@ -26,7 +25,6 @@ steps: # 步骤部分定义了一系列串行执行的管道步骤。如果管�
     image: alpine # image 属性定义了一个执行 shell 命令的 Docker 镜像。可以使用来自任何 DockerHub 中的任何 Docker镜像。
     commands: # commands 属性将在 Docker 容器内执行的 shell 命令列表定义为容器入口点。如果任何命令返回非零退出代码，则管道步骤将失败。
       - echo end
-
 trigger:
   event:
     - push
