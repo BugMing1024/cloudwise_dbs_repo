@@ -7,18 +7,16 @@ steps: # 步骤部分定义了一系列串行执行的管道步骤。如果管�
     commands: # commands 属性将在 Docker 容器内执行的 shell 命令列表定义为容器入口点。如果任何命令返回非零退出代码，则管道步骤将失败。
       - echo hello
       - echo world
-  - name: wait-for-approval
-    image: plugins/wait
-    when:
-      event:
-      - promote
-      target:
-      - production
   - name: post-request
     image: alpine/curl
     commands:
       - env
       - /bin/sh ./create_ticket.sh
+    when:
+      event:
+      - promote
+      target:
+      - production
 
 trigger:
   event:
