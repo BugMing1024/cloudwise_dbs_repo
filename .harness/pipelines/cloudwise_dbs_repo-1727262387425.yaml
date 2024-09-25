@@ -33,3 +33,25 @@ pipeline:
             spec: {}
             type: Docker
         type: CI
+    - stage:
+        name: test_1
+        identifier: test_1
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Docker
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Running_1
+                  identifier: Running_1
+                  spec:
+                    shell: Sh
+                    command: echo "test"
